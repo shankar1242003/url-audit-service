@@ -1,4 +1,3 @@
-const logger = require("../utils/logger");
 const cache = require("../cache/cache");
 const ApiError = require("../utils/ApiError");
 const auditService = require("../services/audit.service");
