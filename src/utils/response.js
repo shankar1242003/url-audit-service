@@ -1,16 +1,19 @@
-const success = (req, res, data, message = "Success", status = 200) => {
-  return res.status(status).json({
+const success = (res, message, data = {}, statusCode = 200) => {
+  return res.status(statusCode).json({
     success: true,
-    requestId: req.requestId,
     message,
     data,
   });
 };
 
-const failure = (req, res, code, message, status = 500) => {
-  return res.status(status).json({
+const failure = (
+  res,
+  statusCode = 500,
+  code = "INTERNAL_SERVER_ERROR",
+  message = "Something went wrong",
+) => {
+  return res.status(statusCode).json({
     success: false,
-    requestId: req.requestId,
     error: {
       code,
       message,
