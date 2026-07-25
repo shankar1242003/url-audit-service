@@ -9,27 +9,19 @@ const auditUrl = async (req, res, next) => {
     const cachedData = cache.get(url);
 
     if (cachedData) {
-      return success(
-        res,
-        {
-          cached: true,
-          audit: cachedData,
-        },
-        "Audit retrieved from cache.",
-      );
+      return success(res, "Audit retrieved from cache.", {
+        cached: true,
+        audit: cachedData,
+      });
     }
 
     const result = await auditService.audit(url);
     cache.set(url, result);
 
-    return success(
-      res,
-      {
-        cached: false,
-        audit: result,
-      },
-      "URL audited successfully.",
-    );
+    return success(res, "URL audited successfully.", {
+      cached: false,
+      audit: result,
+    });
   } catch (error) {
     return next(
       new ApiError(500, "AUDIT_FAILED", "Unable to audit the provided URL."),
