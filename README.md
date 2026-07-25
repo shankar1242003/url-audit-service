@@ -85,6 +85,26 @@ url-audit-service
 
 ---
 
+# Architecture
+
+Client
+│
+POST /api/v1/audit
+│
+Validation
+│
+Rate Limiter
+│
+Cache
+│
+Audit Service
+│
+Axios
+│
+Cheerio
+│
+JSON Response
+
 # ⚙️ Installation
 
 Clone the repository:
@@ -213,6 +233,18 @@ Every push automatically:
 - Security Header Checks
 
 ---
+
+# HTTP status codes
+
+200 OK
+
+400 Invalid URL
+
+429 Too Many Requests
+
+500 Internal Error
+
+504 Gateway Timeout
 
 # 👨‍💻 Author
 

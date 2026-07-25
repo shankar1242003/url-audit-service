@@ -1,7 +1,7 @@
 {
   "name": "url-audit-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "Production-grade URL Audit Service built with Node.js and Express",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shankar Rawool",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.18.1",
