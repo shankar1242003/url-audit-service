@@ -1,5 +1,5 @@
 const express = require("express");
-
+const authRoutes = require("./routes/auth.routes");
 const requestId = require("./middleware/requestId.middleware");
 const errorHandler = require("./middleware/error.middleware");
 
@@ -30,6 +30,7 @@ app.get("/health", (req, res) => {
 });
 
 // API Routes
+app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/audit", auditRoutes);
 
 // Error Handler (must always be last)
